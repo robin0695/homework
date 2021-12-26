@@ -2,7 +2,21 @@ package com.robin.homework.homework.q4.repository;
 
 import com.robin.homework.homework.q4.module.CustomerPo;
 import com.robin.homework.homework.q4.module.ServicePo;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-public interface ServiceRepository extends JpaRepository<ServicePo, Integer> {
+import javax.persistence.EntityManager;
+import java.util.Optional;
+
+@Component
+public class ServiceRepository {
+
+  @Autowired
+  private EntityManager entityManager;
+
+  public Optional<ServicePo> findById(Integer id) {
+    ServicePo servicePo = entityManager.find(ServicePo.class, id);
+    return servicePo != null ? Optional.of(servicePo) : Optional.empty();
+  }
+
 }

@@ -1,9 +1,7 @@
 package com.robin.homework.homework.q4.module;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -19,7 +17,12 @@ public class CustomerPo {
   private String name;
 
   @OneToMany(mappedBy = "customer", cascade=CascadeType.ALL, fetch = FetchType.LAZY,  orphanRemoval = true)
-  private Set<SubscriptionPo> subscriptions;
+  private Set<SubscriptionPo> subscriptions = new HashSet<>();
+
+  public void addSubscription(SubscriptionPo subscriptionPo) {
+    this.subscriptions.add(subscriptionPo);
+    subscriptionPo.setCustomer(this);
+  }
 
   public Integer getId() {
     return id;

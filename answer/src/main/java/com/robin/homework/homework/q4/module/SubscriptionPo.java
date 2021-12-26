@@ -14,12 +14,10 @@ public class SubscriptionPo {
 
   @ManyToOne
   @JoinColumn(name = "customer_id")
-  @JsonIgnore
   CustomerPo customer;
 
   @ManyToOne
   @JoinColumn(name = "service_id")
-  @JsonIgnore
   ServicePo service;
 
   @Column(name = "subscribed_at")
