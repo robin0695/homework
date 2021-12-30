@@ -63,7 +63,8 @@ public class HomeworkApplicationIntegrationTest {
 
     @Test
     public void givenGetCustomersApiCall_whenServiceListRetrieved_thenSizeMatchAndListContainsCustomerNames() {
-        ResponseEntity<Iterable<Customer>> responseEntity = restTemplate.exchange("http://localhost:" + port + "/api/customers", HttpMethod.GET, null, new ParameterizedTypeReference<Iterable<Customer>>() {
+        ResponseEntity<Iterable<Customer>> responseEntity = restTemplate.exchange(
+            "http://localhost:" + port + "/api/customers", HttpMethod.GET, null, new ParameterizedTypeReference<>() {
         });
 
         Iterable<Customer> customers = responseEntity.getBody();
