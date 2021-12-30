@@ -49,7 +49,8 @@ public class HomeworkApplicationIntegrationTest {
 
     @Test
     public void givenGetServicesApiCall_whenCustomerListRetrieved_thenSizeMatchAndListContainsServiceNames() {
-        ResponseEntity<Iterable<Service>> responseEntity = restTemplate.exchange("http://localhost:" + port + "/api/services", HttpMethod.GET, null, new ParameterizedTypeReference<Iterable<Service>>() {
+        ResponseEntity<Iterable<Service>> responseEntity = restTemplate.exchange(
+            "http://localhost:" + port + "/api/services", HttpMethod.GET, null, new ParameterizedTypeReference<Iterable<Service>>() {
         });
         Iterable<Service> services = responseEntity.getBody();
         Assertions
@@ -62,20 +63,9 @@ public class HomeworkApplicationIntegrationTest {
     }
 
     @Test
-    public void givenGetCustomersApiCall_whenServiceListRetrieved_thenSizeMatchAndListContainsCustomerNames() {
-        ResponseEntity<Iterable<Customer>> responseEntity = restTemplate.exchange(
-            "http://localhost:" + port + "/api/customers", HttpMethod.GET, null, new ParameterizedTypeReference<>() {
-        });
-
-        Iterable<Customer> customers = responseEntity.getBody();
-        Assertions
-          .assertThat(customers)
-          .hasSize(0);
-    }
-
-    @Test
     public void givenPostCustomer_whenBodyRequestMatcherJson_thenResponseContainsEqualObjectProperties() {
-        final ResponseEntity<Customer> postResponse = restTemplate.postForEntity("http://localhost:" + port + "/api/customers", prepareCustomerForm(), Customer.class);
+        final ResponseEntity<Customer> postResponse = restTemplate.postForEntity(
+            "http://localhost:" + port + "/api/customers", prepareCustomerForm(), Customer.class);
         Customer customer = postResponse.getBody();
         Assertions
           .assertThat(postResponse.getStatusCode())
