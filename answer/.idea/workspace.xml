@@ -5,34 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bc0556a1-6478-4583-bdcc-ab7f0b37b4b7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql/tables.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/robin/homework/homework/HomeworkApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/robin/homework/homework/q1/Merge2List.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/robin/homework/homework/q2/MyBlockingQueue.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/robin/homework/homework/q3/proxy/BaseShape.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/robin/homework/homework/q3/proxy/Circle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/robin/homework/homework/q3/proxy/ShapeProxy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/robin/homework/homework/q3/template/BaseShape.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/robin/homework/homework/q3/template/Circle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/robin/homework/homework/q4/config/JpaConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/robin/homework/homework/q4/config/UpperCaseStrategy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/robin/homework/homework/q4/controller/CustomerController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/robin/homework/homework/q4/module/CustomerPo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/robin/homework/homework/q4/module/ServicePo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/robin/homework/homework/q4/module/SubscriptionPo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/robin/homework/homework/q4/repository/CustomerRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/robin/homework/homework/q4/repository/CustomerSubscriptionRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/robin/homework/homework/q4/repository/ServiceRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/robin/homework/homework/q4/service/CustomerService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/robin/homework/homework/q4/service/impl/CustomerServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/robin/homework/homework/HomeworkApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/robin/homework/homework/q1/Merge2ListTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/robin/homework/homework/q2/MyBlockingQueueTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/robin/homework/homework/q3/proxy/ShapeTest2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/robin/homework/homework/q3/template/ShapeTest1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,19 +59,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="HomeworkApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="homework" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.robin.homework.homework.HomeworkApplication" />
@@ -115,6 +77,10 @@
       <updated>1640683258275</updated>
       <workItem from="1640683259825" duration="6654000" />
       <workItem from="1640781277740" duration="7749000" />
+      <workItem from="1640846965329" duration="3245000" />
+      <workItem from="1640853731426" duration="223000" />
+      <workItem from="1640854078270" duration="2130000" />
+      <workItem from="1640856251687" duration="55000" />
     </task>
     <servers />
   </component>
