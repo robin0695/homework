@@ -1,6 +1,7 @@
 package com.robin.homework.q4.service;
 
 import com.robin.homework.q4.model.Subscription;
+import com.robin.homework.q4.model.SubscriptionKey;
 import com.robin.homework.q4.repository.SubscriptionRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,5 +19,10 @@ public class SubscriptionServiceImpl implements SubscriptionService {
     @Override
     public Subscription create(Subscription subscription) {
         return this.subscriptionRepository.save(subscription);
+    }
+
+    @Override
+    public void delete(SubscriptionKey key) {
+        this.subscriptionRepository.deleteById(key);
     }
 }

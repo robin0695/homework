@@ -14,4 +14,6 @@ public interface CustomerService {
     Customer create(@NotNull(message = "The customer cannot be null.") @Valid Customer customer);
 
     void update(@NotNull(message = "The customer cannot be null.") @Valid Customer customer);
+
+    Customer getCustomerById(Long id);
 }

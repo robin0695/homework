@@ -39,6 +39,14 @@ public class SubscriptionKey implements Serializable {
         this.service = service;
     }
 
+    public SubscriptionKey() {
+    }
+
+    public SubscriptionKey(Customer customer, Service service) {
+        this.customer = customer;
+        this.service = service;
+    }
+
     @Override
     public int hashCode() {
         final int prime = 31;

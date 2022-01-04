@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -33,4 +34,11 @@ public class CustomerServiceImpl implements CustomerService {
     public void update(Customer customer) {
         this.customerRepository.save(customer);
     }
+
+    @Override
+    public Customer getCustomerById(Long id) {
+        Optional<Customer> customerOptional = this.customerRepository.findById(id);
+        return customerOptional.orElse(null);
+    }
+
 }

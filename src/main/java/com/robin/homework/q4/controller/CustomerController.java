@@ -4,6 +4,7 @@ import com.robin.homework.q4.dto.SubscriptionDto;
 import com.robin.homework.q4.exception.ResourceNotFoundException;
 import com.robin.homework.q4.model.Customer;
 import com.robin.homework.q4.model.Subscription;
+import com.robin.homework.q4.model.SubscriptionKey;
 import com.robin.homework.q4.model.SubscriptionStatus;
 import com.robin.homework.q4.service.CustomerService;
 import com.robin.homework.q4.service.ServiceService;
@@ -71,6 +72,53 @@ public class CustomerController {
         return new ResponseEntity<>(customer, headers, HttpStatus.CREATED);
     }
 
+    @PutMapping
+    public ResponseEntity<Customer> addSubscription(@RequestBody CustomerForm form) {
+        List<SubscriptionDto> formDtos = form.getSubscriptions();
+        validateServicesExistence(formDtos);
+        validateCustomerExistence(form.getId());
+        Customer customer = customerService.getCustomerById(form.getId());
+        List<Subscription> subscriptions = new ArrayList<>();
+        for (SubscriptionDto dto : formDtos) {
+            subscriptions.add(subscriptionService.create(new Subscription(customer, serviceService.getService(dto
+                .getService()
+                .getId()), dto.getQuantity())));
+        }
+
+        customer.getSubscriptions().addAll(subscriptions);
+        String uri = ServletUriComponentsBuilder
+            .fromCurrentServletMapping()
+            .path("/customers/{id}")
+            .buildAndExpand(customer.getId())
+            .toString();
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Location", uri);
+
+        return new ResponseEntity<>(customer, headers, HttpStatus.OK);
+    }
+
+    @DeleteMapping
+    public ResponseEntity<Customer> deleteSubscription(@RequestBody CustomerForm form) {
+        List<SubscriptionDto> formDtos = form.getSubscriptions();
+        validateServicesExistence(formDtos);
+        validateCustomerExistence(form.getId());
+        Customer customer = customerService.getCustomerById(form.getId());
+        for (SubscriptionDto dto : formDtos) {
+            subscriptionService.delete(new SubscriptionKey(customer, serviceService.getService(dto.getService().getId())));
+            customer.getSubscriptions().removeIf(e -> e.getService().getId().equals(dto.getService().getId()));
+        }
+
+        String uri = ServletUriComponentsBuilder
+            .fromCurrentServletMapping()
+            .path("/customers/{id}")
+            .buildAndExpand(customer.getId())
+            .toString();
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Location", uri);
+
+        return new ResponseEntity<>(customer, headers, HttpStatus.OK);
+    }
+
     private void validateServicesExistence(List<SubscriptionDto>  subscriptionDtos) {
         List<SubscriptionDto> list = subscriptionDtos
           .stream()
@@ -84,7 +132,16 @@ public class CustomerController {
         }
     }
 
+    private void validateCustomerExistence(Long id) {
+      Customer result = customerService.getCustomerById(id);
+        if (result == null) {
+            new ResourceNotFoundException("Customer not found");
+        }
+    }
+
     public static class CustomerForm {
+
+        private Long id;
 
         private List<SubscriptionDto> Subscriptions;
 
@@ -94,6 +151,14 @@ public class CustomerController {
 
         public void setSubscriptions(List<SubscriptionDto> subscriptions) {
             this.Subscriptions = subscriptions;
+        }
+
+        public Long getId() {
+            return id;
+        }
+
+        public void setId(Long id) {
+            this.id = id;
         }
     }
 }
